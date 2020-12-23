@@ -1,0 +1,27 @@
+version: "3.5"
+
+services:
+  nginx-srv:
+    image: your-docker-registry.org/sandbox/devops/monolite-web-framework/nginx:master-1.0
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "2"
+        max-size: "5m"
+    ports: [80:80]
+
+  frontend-srv:
+    image: your-docker-registry.org/sandbox/devops/monolite-web-framework/node:master-1.0
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "2"
+        max-size: "5m"
+
+  api-srv:
+    image: your-docker-registry.org/sandbox/devops/monolite-web-framework/php-fpm:master-1.0
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "2"
+        max-size: "5m"
